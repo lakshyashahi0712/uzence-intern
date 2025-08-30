@@ -68,15 +68,7 @@ export const Disabled: Story = {
   },
 };
 
-export const Sizes: Story = {
-  render: (args) => (
-    <div className="flex flex-col gap-4">
-      <InputField {...args} size="sm" label="Small" />
-      <InputField {...args} size="md" label="Medium" />
-      <InputField {...args} size="lg" label="Large" />
-    </div>
-  ),
-};
+
 
 export const Variants: Story = {
   render: (args) => (
