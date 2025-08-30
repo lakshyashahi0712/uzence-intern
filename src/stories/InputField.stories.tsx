@@ -70,7 +70,7 @@ export const Disabled: Story = {
 
 export const Variants: Story = {
   render: (args) => (
-    <div className="flex flex-col gap-4">
+    <div className="">
       <InputField {...args} variant="filled" label="Filled" />
       <InputField {...args} variant="outlined" label="Outlined" />
       <InputField {...args} variant="ghost" label="Ghost" />
