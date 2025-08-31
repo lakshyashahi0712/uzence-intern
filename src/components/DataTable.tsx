@@ -69,26 +69,26 @@ export function DataTable<T>({
 
 
     if (loading) {
-        return <div className="p-4 text-center">Loading...</div>;
+        return <div className="p-4 text-center dark:text-gray-300">Loading...</div>;
     }
 
 
     if (sortedData.length === 0) {
-        return <div className="p-4 text-center text-gray-500">No data available</div>;
+        return <div className="p-4 text-center text-gray-500 dark:text-gray-400">No data available</div>;
     }
 
     return (
-        <table className="w-full border border-gray-300 rounded-md overflow-hidden">
-            <thead className="bg-gray-100">
+        <table className="w-full border border-gray-300 dark:border-gray-600 rounded-md overflow-hidden">
+            <thead className="bg-gray-100 dark:bg-gray-800">
                 <tr>
-                    {selectable && <th className="p-2 text-left">Select</th>}
+                    {selectable && <th className="p-2 text-left dark:text-gray-200">Select</th>}
                     {columns.map((col) => (
                         <th
                             key={col.key}
                             onClick={() => handleSort(col)}
                             className={clsx(
-                                "p-2 text-left",
-                                col.sortable && "cursor-pointer hover:bg-gray-200"
+                                "p-2 text-left dark:text-gray-200",
+                                col.sortable && "cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
                             )}
                         >
                             {col.title}
@@ -100,18 +100,19 @@ export function DataTable<T>({
             </thead>
             <tbody>
                 {sortedData.map((row, i) => (
-                    <tr key={i} className="border-t hover:bg-gray-50">
+                    <tr key={i} className="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
                         {selectable && (
                             <td className="p-2">
                                 <input
                                     type="checkbox"
                                     checked={selectedRows.has(i)}
                                     onChange={() => toggleRow(i)}
+                                    className="dark:bg-gray-700 dark:border-gray-600"
                                 />
                             </td>
                         )}
                         {columns.map((col) => (
-                            <td key={col.key} className="p-2">
+                            <td key={col.key} className="p-2 dark:text-gray-200">
                                 {String(row[col.dataIndex])}
                             </td>
                         ))}
