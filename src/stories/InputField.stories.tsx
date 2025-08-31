@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
 import { InputField } from "../components/InputField";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import {fn} from "storybook/test"
 
 
 type StoryProps = ComponentProps<typeof InputField>
@@ -9,6 +10,9 @@ type StoryProps = ComponentProps<typeof InputField>
 const meta: Meta<StoryProps> = {
   title: "Components/InputField",
   component: InputField,
+  args: {
+    onChange: fn()
+  },
   argTypes: {
     size: {
       options: ["sm", "md", "lg"],
