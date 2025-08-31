@@ -6,19 +6,16 @@ const config: StorybookConfig = {
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   "addons": [
-    "@chromatic-com/storybook",
-    "@storybook/addon-themes",
-    "@storybook/addon-docs",
     "@storybook/addon-onboarding",
-    "@storybook/addon-a11y",
-    "@storybook/addon-vitest"
+    "@chromatic-com/storybook",
+    "@storybook/addon-vitest",
+    "@storybook/addon-docs",
+    "@storybook/addon-themes",
+    "@storybook/addon-a11y"
   ],
   "framework": {
     "name": "@storybook/react-vite",
     "options": {}
-  },
-  viteFinal: async (config) => {
-    return config;
   }
 };
 export default config;
