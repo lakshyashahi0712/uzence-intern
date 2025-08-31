@@ -10,6 +10,7 @@ type StoryProps = ComponentProps<typeof InputField>
 const meta: Meta<StoryProps> = {
   title: "Components/InputField",
   component: InputField,
+  tags: ["autodocs"],
   args: {
     onChange: fn()
   },

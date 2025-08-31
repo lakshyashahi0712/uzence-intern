@@ -18,14 +18,6 @@ const config: StorybookConfig = {
     "options": {}
   },
   viteFinal: async (config) => {
-    // Ensure PostCSS is configured for Tailwind
-    config.css = config.css || {};
-    config.css.postcss = {
-      plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-      ],
-    };
     return config;
   }
 };

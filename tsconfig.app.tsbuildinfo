@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/datatable.tsx","./src/components/inputfield.tsx","./src/components/__tests__/datatable.test.tsx","./src/components/__tests__/inputfield.test.tsx","./src/stories/datatable.stories.tsx","./src/stories/inputfield.stories.tsx","./src/test/setup.ts","./src/test/vitest.d.ts"],"version":"5.8.3"}

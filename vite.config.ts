@@ -1,18 +1,16 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
-import { resolve } from 'path';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
-const dirname = resolve();
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss()],
+  plugins: [react()],
+  css: {
+    postcss: './postcss.config.js',
+  },
   test: {
     projects: [{
       extends: true,
@@ -20,7 +18,7 @@ export default defineConfig({
         // The plugin will run tests for the stories defined in your Storybook config
         // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
         storybookTest({
-          configDir: resolve(dirname, '.storybook')
+          configDir: '.storybook'
         })],
       test: {
         name: 'storybook',

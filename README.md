@@ -1,69 +1,156 @@
-# React + TypeScript + Vite
+# React Component Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React component library built with TypeScript, Tailwind CSS, and Storybook.
 
-Currently, two official plugins are available:
+## 📸 Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### InputField Component
+![InputField Default](./public/input-deafult.png)
+*InputField with label, placeholder, and helper text*
 
-## Expanding the ESLint configuration
+![InputField Variants](./public/input-variants.png)
+*Different InputField variants: filled, outlined, and ghost*
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### DataTable Component
+![DataTable Default](./public/datatable-deafult.png)
+*Sortable DataTable with sample data*
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Quick Start
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Prerequisites
+- Node.js 20.19+ or 22.12+
+- npm or yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd uzence-intern
+
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 Available Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Development
+npm run dev              # Start Vite dev server
+npm run storybook        # Start Storybook on port 6006
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Testing
+npm run test             # Run tests in watch mode
+npm run test:run         # Run tests once
+
+# Build & Quality
+npm run build            # Build for production
+npm run lint             # Run ESLint
+npm run preview          # Preview production build
 ```
+
+## 🎨 Storybook
+
+View and interact with components in Storybook:
+
+```bash
+npm run storybook
+```
+
+Features:
+- 🌙 Dark/Light theme switcher
+- 📱 Responsive design testing
+- ♿ Accessibility testing
+- 📖 Interactive documentation
+
+## 🧩 Components
+
+### InputField
+Flexible input component with multiple variants and states.
+
+```tsx
+import { InputField } from './components/InputField';
+
+<InputField
+  label="Username"
+  placeholder="Enter username"
+  variant="outlined"
+  size="md"
+/>
+```
+
+**Props:**
+- `variant`: `'filled' | 'outlined' | 'ghost'`
+- `size`: `'sm' | 'md' | 'lg'`
+- `invalid`: boolean for error state
+- `disabled`: boolean for disabled state
+
+### DataTable
+Sortable and selectable data table component.
+
+```tsx
+import { DataTable } from './components/DataTable';
+
+const columns = [
+  { key: 'id', title: 'ID', dataIndex: 'id', sortable: true },
+  { key: 'name', title: 'Name', dataIndex: 'name', sortable: true },
+];
+
+<DataTable
+  data={data}
+  columns={columns}
+  selectable
+  onRowSelect={(rows) => console.log(rows)}
+/>
+```
+
+## 🎯 Tech Stack
+
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Vite** - Build tool
+- **Storybook** - Component documentation
+- **Vitest** - Testing framework
+- **React Testing Library** - Component testing
+
+## 🧪 Testing
+
+Tests are written using Vitest and React Testing Library:
+
+```bash
+# Run all tests
+npm run test:run
+
+# Run tests in watch mode
+npm test
+```
+
+Current test coverage:
+- ✅ InputField component (5 tests)
+- ✅ DataTable component (5 tests)
+
+## 🌙 Dark Mode
+
+All components support dark mode out of the box using Tailwind's dark mode classes. Toggle themes in Storybook to see components adapt automatically.
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── InputField.tsx
+│   ├── DataTable.tsx
+│   └── __tests__/       # Component tests
+├── stories/             # Storybook stories
+└── test/                # Test utilities
+
+.storybook/              # Storybook configuration
+```
+
+## 🤝 Contributing
+
+1. Create a new component in `src/components/`
+2. Add corresponding tests in `src/components/__tests__/`
+3. Create Storybook stories in `src/stories/`
+4. Run tests and linting before committing
